@@ -1,0 +1,4 @@
+"start": "node src/index.js",
+    "test": "jest",
+    "cypress": "cypress open",
+    "cypress:run": "cypress run"

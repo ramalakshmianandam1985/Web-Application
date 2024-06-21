@@ -1,6 +1,6 @@
-describe('template spec', () => {
-    it('passes', () => {
-      cy.visit('views/index.html')
+describe('User Authentication', () => {
+    it('should register a new user', () => {
+      cy.visit('http://localhost:3000');
       cy.get('#registerUsername').type('testuser');
       cy.get('#registerPassword').type('testpass');
       cy.get('#registerForm').submit();
@@ -29,5 +29,4 @@ describe('template spec', () => {
       });
     });
   });
-  
   

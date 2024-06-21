@@ -1,4 +1,23 @@
-"start": "node src/index.js",
-    "test": "jest",
-    "cypress": "cypress open",
-    "cypress:run": "cypress run"
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+    - name: Install dependencies
+      run: npm install
+    - name: Run backend tests
+      run: npm test
+    - name: Install Cypress dependencies
+      run: npm install --prefix client
+    - name: Run Cypress tests
+      run: npx cypress run --config-file client/cypress.json
+    ```
